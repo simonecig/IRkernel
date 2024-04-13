@@ -31,7 +31,7 @@ installspec <- function(
     srcdir <- system.file('kernelspec', package = 'IRkernel')
     tmp_name <- tempfile()
     dir.create(tmp_name)
-    file.copy(srcdir, tmp_name, recursive = TRUE)
+    file.copy(srcdir, tmp_name, recursive = TRUE, copy.mode = FALSE)
     spec_path <- file.path(tmp_name, 'kernelspec', 'kernel.json')
     spec <- fromJSON(spec_path)
     spec$argv[[1]] <- file.path(R.home('bin'), 'R')
